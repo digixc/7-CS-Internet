@@ -3,12 +3,12 @@
 #+OPTIONS: f:nil author:nil num:nil creator:nil timestamp:nil html-style:nil 
 
 #+TITLE: How The Internet Works
-#+AUTHOR: Marc Scott
+#+AUTHOR: Stephen Brown
 
 
 #+BEGIN_HTML
 <div class=ribbon>
-<a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
+<a href="https://github.com/stsb11/7-CS-Internet">Fork me on GitHub</a>
 </div>
 #+END_HTML
 * [[file:pages/1_Lesson.html][Week 1 - The Internet, The Web, Browsers and Search Engines]]
