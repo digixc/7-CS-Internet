@@ -113,13 +113,13 @@ VIH_DisplayOnPage = "yes";
 - We need domain names because *IP addresses are too difficult for humans to remember.*
 - Imagine typing in this every time you needed to go to a certain web address.
 #+BEGIN_EXAMPLE
-    http://74.125.239.116
+    http://216.58.198.163
 #+END_EXAMPLE
 - Try these as well and write down the corresponding domains:
 #+BEGIN_EXAMPLE
-    1. http://212.58.246.90
-    2. http://77.91.251.10
-    3. http://72.21.210.29
+    1. http://212.58.244.23
+    2. http://10.0.77.186
+    3. http://91.198.174.192
 #+END_EXAMPLE
 ** Present It
 :PROPERTIES:
