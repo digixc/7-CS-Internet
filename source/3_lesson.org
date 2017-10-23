@@ -128,7 +128,7 @@ A quick note. Not everything explained in this presentation is true. Some of it 
 - To do this the server needs to use a searching algorithm.
 ----
 On the image below you're presented with an Identity Parade Lineup. You need to find this face:
-[[file:img/Face.jpg]]
+[[file:img/Face.png]]
 
 #+BEGIN_HTML
 	    <canvas id="myCanvas" width="960" height="600"></canvas>
