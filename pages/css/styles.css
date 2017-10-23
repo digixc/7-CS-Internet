@@ -57,7 +57,6 @@ p code {
   /* Opera 4-6 */
   white-space: -o-pre-wrap;
   /* Opera 7 */
-
 }
 pre {
   font-size: 16px;
@@ -195,6 +194,12 @@ object {
 }
 .save h3 {
   background-image: url(icons/Save.svg);
+}
+.key h3 {
+  background-image: url(icons/keypoint.png);
+}
+.objectives h3 {
+  background-image: url(icons/objectives.png);
 }
 h3 {
   color: #A30000;

@@ -43,6 +43,19 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
+* Learning Objectives
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+
+** Understanding and being able to explain:
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: objectives
+:END:
+- what world wide web is
+- what the Internet is
+- what a web browser is
+- what a search engine is
 * Introduction
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
@@ -51,7 +64,7 @@
 - Use a text editor to record your progress as you go along.
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Create a new directory called =The-Internet=.
 - Create a new file and call it =Notes=.
@@ -85,7 +98,7 @@
 :END:      
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Add into your notes your new understanding of what The Internet is.
 - Add into your notes what /Fibre Optic/ cables are.
@@ -103,79 +116,63 @@
 - Tim Berners-Lee invented the Web back in 1989.
 - To understand how the Web works, we're going to create a little web-page.
   - Create a new directory somewhere in your directory. Call it =myWebsite=
-** Code It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: code
-:END:
-- Open up a text editor.
-- Now copy and paste the following into your document
-#+BEGIN_EXAMPLE
-    <html>
-    <body>
-        <h1>My First Webpage</h1>
-        <p>This is my first webpage. I hope you enjoy it.</p>
-        <img src="http://en.wikipedia.org/wiki/World_wide_web#mediaviewer/File:WorldWideWebAroundWikipedia.png" width="600px">
-        <a href="secondpage.html">Link to my Second Page</a>
-    </body>
-    </html>             
-#+END_EXAMPLE
-** Save It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: save
-:END:
-- Save your file as =firstpage.html=
-- The name is important - make sure it is all lowercase and that the file
-ends in =.html= and /NOT/ =.txt=
-** Code It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: code
-:END:
-- Now create a second document.
-- Now copy and paste the following into your document
-#+BEGIN_EXAMPLE
-    <html>
-    <body>
-        <h1>My Second Webpage</h1>
-        <p>This is my second webpage. I hope you enjoy it as much as the first.</p>
-        <a href="firstpage.html">Link to my First Page</a>
-        <a href="http://www.google.com">Link to Google</a>
-    </body>
-    </html>
-#+END_EXAMPLE 
-** Save It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: save
-:END:
-- Save the file as =secondpage.html=
-** Run It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: run
-:END:
-- Now have a look inside the directory you created. You should see two icons for the two files that you created and both should look like web browser icons
-- Double click the firstpage.html file and it should open up in a web-browser.
-- Test that the links work.
-- If the pages don't work, go back and look at them in your text editor, and make sure you have copied and pasted the code correctly. Also check that the names of the files are correct.
+
 ** Try It:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- Can you make a third web page by altering the code we've used in the other two?
+- With this page open on your Firefox web browser, type ctrl+U, this is control and U all together.
+- You will see something similar to this:
+#+BEGIN_SRC html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>The Internet, The Web, Browsers and Search Engines.</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<style type="text/css">
+.
+.
+.
+
+#+END_SRC
+- Try ctrl+U on a different webpage, such as www.bbc.co.uk
+- You should see something similar to the above output on your screen.
+- Pay attention to the line starting with:
+#+BEGIN_SRC html
+<!DOCTYPE html PUBLIC ...
+
+#+END_SRC
+- The line tells the browser the webpage is a *html* document.
+- All webpages are made of *html documents*
 ** Research It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: research
 :END:
-- The world wide web is a collection of =html= documents, like the two that you created.
-- They all link to each other using links like the ones you made.
+- Search online on =how to make a hyper link in a html document=
+- Add the line of code you find to your notes.
+** Key Points to Remember
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: key
+:END:
+- The world wide web is a collection of =html= documents, like those that you have seen.
+- They all link to each other using hyper links.
 - The =html= documents are stored on different computers all over the world.
 - These computers are called /Web Servers/
 [[https://upload.wikimedia.org/wikipedia/commons/9/98/Cern_datacenter.jpg]]
+
+** Research It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: research
+:END:
 - Try to find out the following information
-  - What is the most popular web page in the world?
+  - What is the most popular web page in the world? Go to [[http://internet-map.net][this website]] which has an unique and visual way to represent the web.
   - What was the worlds first web page?
   - How many web pages currently make up the World Wide Web?
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Write up your findings. Be sure to include a description of what the web is.
 ** Save It
@@ -210,7 +207,7 @@ computer
 - What are the major differences between the different web browsers?
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Add your findings to your notes.
 ** Save It
@@ -232,7 +229,7 @@ computer
 #+END_HTML
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Write up what you learned in your notes. You should be able to do it in a paragraph or two.
 ** Save It
