@@ -43,6 +43,17 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
+* Learning Objectives
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+** Understanding and being able to explain:
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: objectives
+:END:
+- What is domain name and why using domain name
+- What is IP address and why using IP address
+- What is DNS and how it works
 * URLs and Domain Names
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
@@ -50,6 +61,9 @@
 Look at your browser's address bar. What ever is written there is the
 URL of the page you are on.
 What ever is written there /after/ the =http://www= but /before/ the first =/= is the domain name of the site you are on.
+
+[[./img/domain_img01.gif]]
+
 You'll be very familiar with some domain names like;
 #+BEGIN_EXAMPLE
     google.com
@@ -67,7 +81,7 @@ You'll be very familiar with some domain names like;
 - Gather a list of 10 other Top Level Domains that are available.
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Explain what a Top Level Domain is and give some examples for your notes.
 * IP addresses
@@ -91,12 +105,14 @@ You'll be very familiar with some domain names like;
     51° 30′ 12.23″ N, 0° 7′ 39.5″ W
 #+END_EXAMPLE
 - This is tricky for a human to remember but great for a computer. 
-- Try copying and pasting it into [[http://maps.google.com][Google Maps]] and see what happens
-----
+** Key Points to Remember
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: key
+:END:
 - Domain names are like address, they are designed for humans to read and remember. In reality a computer's address (that allows other computers on a network or the internet to find it), is made up of numbers.
 - Computer use =IP addresses= to send messages to each other.
 - Your Computer's current IP address should be shown below
-#+BEGIN_HTML
+  #+BEGIN_HTML
 <div style="text-align:center;margin:0 auto;">
 </br>                   
 <script language="JavaScript">
@@ -109,13 +125,13 @@ VIH_DisplayOnPage = "yes";
 <script language="JavaScript" src="http://scripts.hashemian.com/js/visitorIPHOST.js.php"></script>
 </br>
 </div>
-#+END_HTML
+  #+END_HTML
 - We need domain names because *IP addresses are too difficult for humans to remember.*
-- Imagine typing in this every time you needed to go to a certain web address.
+- Imagine typing in this every time you needed to go to a certain web address. Try the following in your home browser and see where each of the IP addresses takes you to. Note: those will not work inside school as accessing websites by IP addresses are blocked.
 #+BEGIN_EXAMPLE
     http://216.58.198.163
 #+END_EXAMPLE
-- Try these as well and write down the corresponding domains:
+- Try these as well at home and note the corresponding domains:
 #+BEGIN_EXAMPLE
     1. http://212.58.244.23
     2. http://10.0.77.186
@@ -123,7 +139,7 @@ VIH_DisplayOnPage = "yes";
 #+END_EXAMPLE
 ** Present It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: present
+:HTML_CONTAINER_CLASS: document
 :END:
 - Answer the following questions in your notes.
   - What is a domain name?
@@ -137,6 +153,11 @@ VIH_DisplayOnPage = "yes";
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: research
 :END:
+You can use [[https://howdns.works/][this colourful tutorial]] to help you understand how DNS work
+
+OR
+
+You can use the following videos to help you.
 - Below are three videos, each explaining DNS in a little more detail. You can watch just the first, or all three, but make sure you understand what DNS is.
 #+BEGIN_HTML
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2ZUxoi7YNgs" frameborder="0" allowfullscreen></iframe>
@@ -149,7 +170,7 @@ VIH_DisplayOnPage = "yes";
 :HTML_CONTAINER_CLASS: badge
 :END:
 - Imagine you had to explain DNS to somebody who had no idea what it was.
-- Using whatever software you like (or even pen and paper if you prefer), create a product that you could use to help explain DNS to someone. You could create a poster, a presentation, a report. It's really up to you.
+- Using whatever software you like (or even pen and paper if you prefer), create a product that you could use to help explain DNS to someone. You could create a poster, a presentation, a report, an illustrated art work. It's really up to you.
 - You'll be awarded a bronze, silver or gold badge, depending on your teacher's assessment of your understanding of DNS.
 
-
+[[./img/how-internet-works1.jpg]]
