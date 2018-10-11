@@ -3,7 +3,7 @@
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
 #+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil toc:nil
 #+TITLE: The Internet, The Web, Browsers and Search Engines.
-#+AUTHOR: Marc Scott
+#+AUTHOR: 
 
 #+BEGIN_HTML
 <div class=ribbon>
@@ -47,8 +47,8 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-
-** Understanding and being able to explain:
+- In this lesson you will develop an understanding of the learning strand *Network and Communications* on your progress ladder, working towards yellow level.
+*** Understanding and being able to explain:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: objectives
 :END:
@@ -167,7 +167,6 @@
 :HTML_CONTAINER_CLASS: research
 :END:
 - Try to find out the following information
-  - What is the most popular web page in the world? Go to [[http://internet-map.net][this website]] which has an unique and visual way to represent the web.
   - What was the worlds first web page?
   - How many web pages currently make up the World Wide Web?
 ** Present It
