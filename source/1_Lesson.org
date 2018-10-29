@@ -244,6 +244,7 @@ computer
 - Try to assess your understanding by taking this quiz [[file:js/popquiz.htm][here]]
 - If you have scored 80% or higher, well done.
 - If you did not sore as high, can you re-read the notes to see what you have missed?
+- Take a screenshot of your quiz result and add it to your notes
 
 * Present Your Notes
 :PROPERTIES:
