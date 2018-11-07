@@ -95,7 +95,8 @@
 | google.com  | 74.125.239.116 |
 | bbc.co.uk   |  212.58.246.90 |
 
-A quick note. Not everything explained in this presentation is true. Some of it is a [[http://en.wikipedia.org/wiki/Lie-to-children][simplification]] to make things easier to understand
+- It is a simplication of the actual data on a DNS
+- If you want to find out more, here is a good [[https://linode.com/docs/networking/dns/dns-records-an-introduction/][article]] on this.
 ** Code It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
@@ -109,7 +110,7 @@ A quick note. Not everything explained in this presentation is true. Some of it 
 :END:
 - We're going to need a few Domain names and IP Addresses to populate our table. About 1000 of each should do the trick.
 - This would take ages by hand, but luckily Scratch allows us to import text files.
-- Download this text file - [[file:../resources/domains.txt][Domains.txt]] and this text file - [[file:../resources/IPs.txt][IPs.txt]]
+- Right click on this file - [[file:../resources/domains.txt][Domains.txt]]  then *Save Linked File As* and right click on this text file - [[file:../resources/IPs.txt][IPs.txt]] then *Save Linked File As* to save those two files to your homedrive.
 - Now right click on the gray box that represents the Domain Names list and choose import from the context menu.
 - You can then direct your file browser to the downloaded file.
 [[file:img/Create_Lists_2.png]]
@@ -336,13 +337,22 @@ Here's a quick recap of what you've covered so far.
 :END:
 ** Badge It
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: badge
+:HTML_CONTAINER_CLASS: silver
+:END:
+
+- Test your code to check it works
+- Upload a screen shot of your finished and tested script to www.bournetolearn.com
+
+** Badge It
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: gold
 :END:
 
 - You're going to try an implement your own Linear Search program now.
 - Create a Scratch program that:
-   -  Uses two lists, one to store a Subject Name (e.g. Science) and the other to store a teacher's name.
-   -  Allows a user to search for a Subject Name and returns the teacher of that subject
+  - Uses two lists, one to store a Subject Name (e.g. Science) and the other to store a teacher's name.
+  - Allows a user to search for a Subject Name and returns the teacher of that subject
 - Use any sprites you like.
-- Make it return 'Not found" if a subject that doesn't exist is asked for.
+- An extra challenge:
+  - Make it return 'Not found" if a subject that doesn't exist is asked for.
 
