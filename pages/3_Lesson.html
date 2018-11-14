@@ -153,8 +153,7 @@ for the JavaScript code in this tag.
 <li><a href="#sec-2">2. Linear Search</a>
 <ul>
 <li><a href="#sec-2-1">Research It</a></li>
-<li><a href="#sec-2-2">Document It</a></li>
-<li><a href="#sec-2-3">Learn It</a></li>
+<li><a href="#sec-2-2">Learn It</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. Indexing a list</a>
@@ -192,7 +191,7 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-1">Code It</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Go to <a href="http://mit.scratch.edu">The MIT Scratch website</a>
+<li>Go to <a href="http://scratch.mit.edu">The MIT Scratch website</a>
 </li>
 <li>Create a new project
 </li>
@@ -267,9 +266,11 @@ for the JavaScript code in this tag.
 </li>
 <li>This would take ages by hand, but luckily Scratch allows us to import text files.
 </li>
-<li>Right click on this file - <a href="../resources/domains.txt">Domains.txt</a>  then <b>Save Linked File As</b> and right click on this text file - <a href="../resources/IPs.txt">IPs.txt</a> then <b>Save Linked File As</b> to save those two files to your homedrive.
+<li><a href="../resources/domains.txt">Right click </a>here  then <b>Save Linked File As</b> to download the list of <b>domain names</b>. 
 </li>
-<li>Now right click on the gray box that represents the Domain Names list and choose import from the context menu.
+<li><a href="../resources/IPs.txt">Right click</a> here then <b>Save Linked File As</b> to download the list of <b>IP addresses</b>.
+</li>
+<li>In your Scratch window, right click on the gray box that represents the Domain Names list and choose import from the context menu.
 </li>
 <li>You can then direct your file browser to the downloaded file.
 </li>
@@ -306,115 +307,12 @@ for the JavaScript code in this tag.
 <li>To do this the server needs to use a searching algorithm.
 </li>
 </ul>
-<p>
--&#x2014;
-On the image below you're presented with an Identity Parade Lineup. You need to find this face:
-<img src="img/Face.png" alt="Face.png" />
-</p>
-
-<canvas id="myCanvas" width="960" height="600"></canvas>
-<script> //Some seriously ugly js here. Come back and fix.
- var canvas = document.getElementById('myCanvas');
- var context = canvas.getContext('2d');
- var UsualBkg = new Image();
- var blank_face = new Image();
- var image1Vis = true;
- var image2Vis = true;
- var image3Vis = true;
- var image4Vis = true;
- var image5Vis = true;
- var faceSize = 100
- var x;
- var y;
- 
-
- function getMousePos(canvas, evt) 
- {
-   var rect = canvas.getBoundingClientRect();
-   return {
-     x: evt.clientX - rect.left,
-     y: evt.clientY - rect.top
-   };
- }
-
-
- canvas.addEventListener('mousedown', function(evt) 
-                         {
-     var mousePos = getMousePos(canvas, evt);
-
-     if (mousePos.x>100 && mousePos.x<200 && mousePos.y>130 && mousePos.y<230)
-     {
-       image1Vis = false
-     }
-     if (mousePos.x>240 && mousePos.x<340 && mousePos.y>90 && mousePos.y<190)
-     {
-       image2Vis = false
-     }
-     if (mousePos.x>435 && mousePos.x<535 && mousePos.y>75 && mousePos.y<1750)
-     {
-       image3Vis = false
-     }
-     if (mousePos.x>585 && mousePos.x<685 && mousePos.y>90 && mousePos.y<190)
-     {
-       image4Vis = false
-     }
-     if (mousePos.x>760 && mousePos.x<860 && mousePos.y>100 && mousePos.y<200)
-     {
-       image5Vis = false
-     }
-     context.drawImage(UsualBkg, 0, 0, 960, 600);
-     if (image1Vis == true) 
-     {
-       context.drawImage(blank_face, 100, 120, 100, 100);
-     }
-     if (image2Vis == true) 
-     {
-       context.drawImage(blank_face, 240, 90, 100, 100);
-     }
-     if (image3Vis == true) 
-     {
-       context.drawImage(blank_face, 435, 75, 100, 100);
-     }
-     if (image4Vis == true) 
-     {
-       context.drawImage(blank_face, 585, 90, 100, 100);
-     }
-     if (image5Vis == true) 
-     {
-       context.drawImage(blank_face, 760, 100, 100, 100);
-     }
-   }, false);
-
- UsualBkg.onload = function() {
-   context.drawImage(UsualBkg, 0, 0, 960, 600);
-   context.drawImage(blank_face, 100, 130, 100, 100);
-   context.drawImage(blank_face, 240, 90, 100, 100);
-   context.drawImage(blank_face, 435, 75, 100, 100);
-   context.drawImage(blank_face, 585, 90, 100, 100);
-   context.drawImage(blank_face, 760, 100, 100, 100);
- };
- UsualBkg.src = 'img/The_Usual_Suspects.jpg';
- blank_face.src = 'img/blank_face.gif';
-</script>
 </div>
 </div>
 
-<div id="outline-container-sec-2-2" class="outline-3 document">
-<h3 id="sec-2-2">Document It</h3>
+<div id="outline-container-sec-2-2" class="outline-3 learn">
+<h3 id="sec-2-2">Learn It</h3>
 <div class="outline-text-3" id="text-2-2">
-<ul class="org-ul">
-<li>Explain how you choose to find the correct face from the line up.
-</li>
-<li>Try and explain how you think a computer might have done it.
-</li>
-<li>How long do you think it would take you to find the IP address of a domain name in the list of 1001 you now have in Scratch?
-</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-sec-2-3" class="outline-3 learn">
-<h3 id="sec-2-3">Learn It</h3>
-<div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>A linear search is a method of going through a list of items, one by one, and checking each item. 
 </li>

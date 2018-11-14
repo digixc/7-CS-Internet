@@ -82,7 +82,7 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: code
 :END:
-- Go to [[http://mit.scratch.edu][The MIT Scratch website]]
+- Go to [[http://scratch.mit.edu][The MIT Scratch website]]
 - Create a new project
 - Name it DNS model
 ** Research It
@@ -110,8 +110,9 @@
 :END:
 - We're going to need a few Domain names and IP Addresses to populate our table. About 1000 of each should do the trick.
 - This would take ages by hand, but luckily Scratch allows us to import text files.
-- Right click on this file - [[file:../resources/domains.txt][Domains.txt]]  then *Save Linked File As* and right click on this text file - [[file:../resources/IPs.txt][IPs.txt]] then *Save Linked File As* to save those two files to your homedrive.
-- Now right click on the gray box that represents the Domain Names list and choose import from the context menu.
+- [[../resources/domains.txt][Right click ]]here  then *Save Linked File As* to download the list of *domain names*. 
+- [[../resources/IPs.txt][Right click]] here then *Save Linked File As* to download the list of *IP addresses*.
+- In your Scratch window, right click on the gray box that represents the Domain Names list and choose import from the context menu.
 - You can then direct your file browser to the downloaded file.
 [[file:img/Create_Lists_2.png]]
 - Do the same for the IP Addresses list and you should end up with something that looks like this.
@@ -127,104 +128,7 @@
 - When you type in a URL into a web-browser address bar, your computer consults the DNS server, to find the IP address.
 - The DNS server has to look up the domain name and find the corresponding IP address
 - To do this the server needs to use a searching algorithm.
-----
-On the image below you're presented with an Identity Parade Lineup. You need to find this face:
-[[file:img/Face.png]]
 
-#+BEGIN_HTML
-	    <canvas id="myCanvas" width="960" height="600"></canvas>
-	    <script> //Some seriously ugly js here. Come back and fix.
-	     var canvas = document.getElementById('myCanvas');
-	     var context = canvas.getContext('2d');
-	     var UsualBkg = new Image();
-	     var blank_face = new Image();
-	     var image1Vis = true;
-	     var image2Vis = true;
-	     var image3Vis = true;
-	     var image4Vis = true;
-	     var image5Vis = true;
-	     var faceSize = 100
-	     var x;
-	     var y;
-	     
-
-	     function getMousePos(canvas, evt) 
-	     {
-	       var rect = canvas.getBoundingClientRect();
-	       return {
-		 x: evt.clientX - rect.left,
-		 y: evt.clientY - rect.top
-	       };
-	     }
-
-
-	     canvas.addEventListener('mousedown', function(evt) 
-				     {
-		 var mousePos = getMousePos(canvas, evt);
-
-		 if (mousePos.x>100 && mousePos.x<200 && mousePos.y>130 && mousePos.y<230)
-		 {
-		   image1Vis = false
-		 }
-		 if (mousePos.x>240 && mousePos.x<340 && mousePos.y>90 && mousePos.y<190)
-		 {
-		   image2Vis = false
-		 }
-		 if (mousePos.x>435 && mousePos.x<535 && mousePos.y>75 && mousePos.y<1750)
-		 {
-		   image3Vis = false
-		 }
-		 if (mousePos.x>585 && mousePos.x<685 && mousePos.y>90 && mousePos.y<190)
-		 {
-		   image4Vis = false
-		 }
-		 if (mousePos.x>760 && mousePos.x<860 && mousePos.y>100 && mousePos.y<200)
-		 {
-		   image5Vis = false
-		 }
-		 context.drawImage(UsualBkg, 0, 0, 960, 600);
-		 if (image1Vis == true) 
-		 {
-		   context.drawImage(blank_face, 100, 120, 100, 100);
-		 }
-		 if (image2Vis == true) 
-		 {
-		   context.drawImage(blank_face, 240, 90, 100, 100);
-		 }
-		 if (image3Vis == true) 
-		 {
-		   context.drawImage(blank_face, 435, 75, 100, 100);
-		 }
-		 if (image4Vis == true) 
-		 {
-		   context.drawImage(blank_face, 585, 90, 100, 100);
-		 }
-		 if (image5Vis == true) 
-		 {
-		   context.drawImage(blank_face, 760, 100, 100, 100);
-		 }
-	       }, false);
-
-	     UsualBkg.onload = function() {
-	       context.drawImage(UsualBkg, 0, 0, 960, 600);
-	       context.drawImage(blank_face, 100, 130, 100, 100);
-	       context.drawImage(blank_face, 240, 90, 100, 100);
-	       context.drawImage(blank_face, 435, 75, 100, 100);
-	       context.drawImage(blank_face, 585, 90, 100, 100);
-	       context.drawImage(blank_face, 760, 100, 100, 100);
-	     };
-	     UsualBkg.src = 'img/The_Usual_Suspects.jpg';
-	     blank_face.src = 'img/blank_face.gif';
-	    </script>
-#+END_HTML
-
-** Document It
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: document
-:END:
-- Explain how you choose to find the correct face from the line up.
-- Try and explain how you think a computer might have done it.
-- How long do you think it would take you to find the IP address of a domain name in the list of 1001 you now have in Scratch?
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
