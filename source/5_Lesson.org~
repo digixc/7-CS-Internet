@@ -3,7 +3,7 @@
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
 #+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil  
 #+TITLE: Modeling a Network in Scratch
-#+AUTHOR: Marc Scott
+#+AUTHOR: Marc Scotthh
 #+BEGIN_HTML
 <div class=ribbon>
 <a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
@@ -87,8 +87,8 @@
 - How Computers, IP addresses, Routers and Packets are used to send data between devices
 - What a variable is and how we can use them in Scratch
 - How to use the broadcast block in Scratch
-- How to use loops (Iteration)
-- How to use the ask and answer blocks in Scratch to receive user input
+- How to use loops (Iteration) in Sratch
+- How to use the ask and answer blocks in Scratch to receive user input in Scratch
 
 * Getting started
 :PROPERTIES:
@@ -208,16 +208,20 @@ Broadcast Create Packet
   Your browser does not support the video file
 </video>
 #+END_HTML
-* Extension Activities
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: activity
-:END:
+
 ** Badge It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
+- *Gold*:
+- Upload a screenshot of your code as well as the core parts of it running:
+- Asking for the destination
+- Asking for the message
+- The packet reaching the destination and saying the message
+
+
+- *Platinum*:
 - Alter your network model so that it includes a DNS look-up.
 - The sending computer should ask for a name to send to the packet to.
 - The IP address should then be searched for from a couple of lists.
 - The packet can then be sent to the looked up IP address.
-

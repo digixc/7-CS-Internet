@@ -208,11 +208,22 @@ Broadcast Create Packet
   Your browser does not support the video file
 </video>
 #+END_HTML
-* Extension Activities
+
+* Badge it
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-** Badge It
+
+** *Gold*:
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload a screenshot of your code as well as the core parts of it running:
+- Asking for the destination
+- Asking for the message
+- The packet reaching the destination and saying the message
+
+** *Platinum*:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
@@ -220,4 +231,3 @@ Broadcast Create Packet
 - The sending computer should ask for a name to send to the packet to.
 - The IP address should then be searched for from a couple of lists.
 - The packet can then be sent to the looked up IP address.
-
