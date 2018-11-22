@@ -48,7 +48,7 @@
 :HTML_CONTAINER_CLASS: activity
 :END:
 - In this lesson you will develop an understanding of the learning strand *Network and Communications* on your progress ladder, working towards yellow level.
-** Understanding and being able to explain:
+*** Understanding and being able to explain:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: objectives
 :END:

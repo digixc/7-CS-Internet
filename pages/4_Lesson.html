@@ -3,21 +3,28 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>How a Network works</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -44,27 +51,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -84,6 +175,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -93,7 +185,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -142,52 +234,79 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. What is a Computer Network?</a>
+<li><a href="#org1c9f63d">1. Learning Objectives</a>
 <ul>
-<li><a href="#sec-1-1">Learn It</a></li>
-<li><a href="#sec-1-2">Research It</a></li>
-<li><a href="#sec-1-3">Document It</a></li>
+<li><a href="#org79662ad">Understanding and being able to explain:</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. Packets and Routers</a>
+<li><a href="#org185a584">2. What is a Computer Network?</a>
 <ul>
-<li><a href="#sec-2-1">Learn It</a></li>
-<li><a href="#sec-2-2">Try It</a></li>
-<li><a href="#sec-2-3">Learn It</a></li>
-<li><a href="#sec-2-4">Try It</a></li>
-<li><a href="#sec-2-5">Learn It</a></li>
-<li><a href="#sec-2-6">Try It</a></li>
-<li><a href="#sec-2-7">Research It</a></li>
-<li><a href="#sec-2-8">Learn It</a></li>
+<li><a href="#orgafb8b5f">Learn It</a></li>
+<li><a href="#org459d629">Research It</a></li>
+<li><a href="#org310c666">Document It</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. A Presentation on Networks</a>
+<li><a href="#orgeefe06e">3. Packets and Routers</a>
 <ul>
-<li><a href="#sec-3-1">Badge It</a></li>
+<li><a href="#org9a734b2">Learn It</a></li>
+<li><a href="#orgdfc6799">Try It</a></li>
+<li><a href="#org91be3bd">Learn It</a></li>
+<li><a href="#org535db35">Try It</a></li>
+<li><a href="#orge219ed0">Learn It</a></li>
+<li><a href="#org0bc8aaa">Try It</a></li>
+<li><a href="#org02607ca">Research It</a></li>
+<li><a href="#org48e950f">Learn It</a></li>
+</ul>
+</li>
+<li><a href="#org99bfc94">4. A Presentation on Networks</a>
+<ul>
+<li><a href="#org459473c">Badge It</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class=ribbon>
-<a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
-</div>
+<div class="HTML">
 <p>
-The internet is a very large network, but at the end of the day it is still just a network of computers.
+&lt;div class=ribbon&gt;
+&lt;a href="<a href="https://github.com/MarcScott/7-CS-Internet">https://github.com/MarcScott/7-CS-Internet</a>"&gt;Fork me on GitHub&lt;/a&gt;
+&lt;/div&gt;
 </p>
-<div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1"><span class="section-number-2">1</span> What is a Computer Network?</h2>
+
+</div>
+<div id="outline-container-org1c9f63d" class="outline-2 activity">
+<h2 id="org1c9f63d"><span class="section-number-2">1</span> Learning Objectives</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>In this lesson you will develop an understanding of the learning strand <b>Network and Communications</b> on your progress ladder, working towards blue/indigo level.</li>
+</ul>
+</div>
+
+<div id="outline-container-org79662ad" class="outline-3 objectives">
+<h3 id="org79662ad">Understanding and being able to explain:</h3>
+<div class="outline-text-3" id="text-org79662ad">
+<ul class="org-ul">
+<li>What a Computer Network is</li>
+<li>Different types of Computer Networks</li>
+<li>What a router is and how it connects to devices</li>
+<li>What packets are and how we use them to transfer data</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org185a584" class="outline-2 activity">
+<h2 id="org185a584"><span class="section-number-2">2</span> What is a Computer Network?</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-When ever we connect two or more computers together, so that they can communicate with each other, we have a Computer Network.
+A Computer Network is when we connect two or more computers together so they can communicate with eachother.
 </p>
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 learn">
-<h3 id="sec-1-1">Learn It</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-orgafb8b5f" class="outline-3 learn">
+<h3 id="orgafb8b5f">Learn It</h3>
+<div class="outline-text-3" id="text-orgafb8b5f">
 <ul class="org-ul">
-<li>There are many different types of network, with names like <i>mesh</i>,/bus/ and <i>ring</i>.
-</li>
+<li>There are many different types of network, with names like <i>mesh</i>,/bus/ and <i>ring</i>.</li>
 </ul>
 
 <div class="figure">
@@ -195,10 +314,8 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>Most networks you will have used will have been <i>star</i> networks.
-</li>
-<li>Star networks are named because of the shape they have in diagrams.
-</li>
+<li>Most networks you will have used will have been <i>star</i> networks.</li>
+<li>Star networks are named because of the shape they have in diagrams.</li>
 </ul>
 
 <div class="figure">
@@ -206,8 +323,7 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>Even though in reality they look more like this:
-</li>
+<li>Even though in reality they look more like this:</li>
 </ul>
 
 <div class="figure">
@@ -215,8 +331,7 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>With the cables tucked away out of sight and leading back to the central hub.
-</li>
+<li>With the cables tucked away out of sight and leading back to the central hub.</li>
 </ul>
 
 <div class="figure">
@@ -225,38 +340,39 @@ When ever we connect two or more computers together, so that they can communicat
 </div>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3 research">
-<h3 id="sec-1-2">Research It</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org459d629" class="outline-3 research">
+<h3 id="org459d629">Research It</h3>
+<div class="outline-text-3" id="text-org459d629">
 <ul class="org-ul">
-<li>The video below will give you an overview of how a Network works.
-</li>
+<li>The video below will give you an overview of how a Network works.</li>
 </ul>
-<iframe width="420" height="315" src="https://www.youtube.com/embed/EWTJKcg7Pj8" frameborder="0" allowfullscreen></iframe>
+<div class="HTML">
+<p>
+&lt;iframe width="420" height="315" src="<a href="https://www.youtube.com/embed/EWTJKcg7Pj8">https://www.youtube.com/embed/EWTJKcg7Pj8</a>" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+</p>
+
 </div>
 </div>
-<div id="outline-container-sec-1-3" class="outline-3 document">
-<h3 id="sec-1-3">Document It</h3>
-<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org310c666" class="outline-3 document">
+<h3 id="org310c666">Document It</h3>
+<div class="outline-text-3" id="text-org310c666">
 <ul class="org-ul">
-<li>Having watched the video, try and produce a summary of it for your notes.
-</li>
+<li>Having watched the video, try and produce a summary of it for your notes.</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2 activity">
-<h2 id="sec-2"><span class="section-number-2">2</span> Packets and Routers</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgeefe06e" class="outline-2 activity">
+<h2 id="orgeefe06e"><span class="section-number-2">3</span> Packets and Routers</h2>
+<div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-sec-2-1" class="outline-3 learn">
-<h3 id="sec-2-1">Learn It</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org9a734b2" class="outline-3 learn">
+<h3 id="org9a734b2">Learn It</h3>
+<div class="outline-text-3" id="text-org9a734b2">
 <ul class="org-ul">
-<li>The image below shows the devices that might make up a home network
-</li>
-<li>Download the image (right click on it), and then open it up in a graphics package such as Paint or Photoshop.
-</li>
+<li>The image below shows the devices that might make up a home network</li>
+<li>Download the image (right click on it), and then open it up in a graphics package such as Paint or Photoshop.</li>
 </ul>
 
 <div class="figure">
@@ -265,46 +381,36 @@ When ever we connect two or more computers together, so that they can communicat
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3 try">
-<h3 id="sec-2-2">Try It</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-orgdfc6799" class="outline-3 try">
+<h3 id="orgdfc6799">Try It</h3>
+<div class="outline-text-3" id="text-orgdfc6799">
 <ul class="org-ul">
 <li>Now label the devices using the list below.
 <ul class="org-ul">
-<li>Desktop Computer
-</li>
-<li>Smartphone
-</li>
-<li>Router
-</li>
-<li>Media Player
-</li>
-<li>Games Console.
-</li>
-<li>Notebook
-</li>
-</ul>
-</li>
+<li>Desktop Computer</li>
+<li>Smartphone</li>
+<li>Router</li>
+<li>Media Player</li>
+<li>Games Console.</li>
+<li>Notebook</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3 learn">
-<h3 id="sec-2-3">Learn It</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org91be3bd" class="outline-3 learn">
+<h3 id="org91be3bd">Learn It</h3>
+<div class="outline-text-3" id="text-org91be3bd">
 <ul class="org-ul">
-<li>We can connect up devices on a network using cable called <i>Patch cables</i>. You've probably got one coming out of the back of the computer you are using right now.
-</li>
-<li>Patch cables are plugged into <i>Ethernet Ports</i> on devices.
-</li>
+<li>We can connect up devices on a network using cable called <i>Patch cables</i>. You've probably got one coming out of the back of the computer you are using right now.</li>
+<li>Patch cables are plugged into <i>Ethernet Ports</i> on devices.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-4" class="outline-3 try">
-<h3 id="sec-2-4">Try It</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-org535db35" class="outline-3 try">
+<h3 id="org535db35">Try It</h3>
+<div class="outline-text-3" id="text-org535db35">
 <ul class="org-ul">
-<li>On your diagram, draw on wires that link the the Ethernet ports on the Desktop Computer, Media Player and Games Console to the Router
-</li>
+<li>On your diagram, draw on wires that link the the Ethernet ports on the Desktop Computer, Media Player and Games Console to the Router</li>
 </ul>
 
 <div class="figure">
@@ -313,53 +419,43 @@ When ever we connect two or more computers together, so that they can communicat
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2-5" class="outline-3 learn">
-<h3 id="sec-2-5">Learn It</h3>
-<div class="outline-text-3" id="text-2-5">
+<div id="outline-container-orge219ed0" class="outline-3 learn">
+<h3 id="orge219ed0">Learn It</h3>
+<div class="outline-text-3" id="text-orge219ed0">
 <ul class="org-ul">
-<li>Some devices connect wirelessly.
-</li>
-<li><i>WiFi</i> stands for Wireless Fidelity.
-</li>
-<li><i>WiFi</i> uses radio waves to allow devices to communicate with each other.
-</li>
+<li>Some devices connect wirelessly.</li>
+<li><i>WiFi</i> stands for Wireless Fidelity.</li>
+<li><i>WiFi</i> uses radio waves to allow devices to communicate with each other.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-6" class="outline-3 try">
-<h3 id="sec-2-6">Try It</h3>
-<div class="outline-text-3" id="text-2-6">
+<div id="outline-container-org0bc8aaa" class="outline-3 try">
+<h3 id="org0bc8aaa">Try It</h3>
+<div class="outline-text-3" id="text-org0bc8aaa">
 <ul class="org-ul">
-<li>On your diagram, add in something to indicate that the Router is able to connect to the Smartphone and Notebook using <i>WiFi</i>.
-</li>
+<li>On your diagram, add in something to indicate that the Router is able to connect to the Smartphone and Notebook using <i>WiFi</i>.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-7" class="outline-3 research">
-<h3 id="sec-2-7">Research It</h3>
-<div class="outline-text-3" id="text-2-7">
+<div id="outline-container-org02607ca" class="outline-3 research">
+<h3 id="org02607ca">Research It</h3>
+<div class="outline-text-3" id="text-org02607ca">
 <ul class="org-ul">
 <li>Devices can connect with each other using a few other methods. Use the Web to try and answer the following questions:
 <ul class="org-ul">
-<li>What is <i>Bluetooth</i>?
-</li>
-<li>What is the range of <i>Bluetooth</i> communications
-</li>
-<li>What are Fibre Optic cables?
-</li>
-<li>What does 4G mean?
-</li>
-</ul>
-</li>
+<li>What is <i>Bluetooth</i>?</li>
+<li>What is the range of <i>Bluetooth</i> communications</li>
+<li>What are Fibre Optic cables?</li>
+<li>What does 4G mean?</li>
+</ul></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-8" class="outline-3 learn">
-<h3 id="sec-2-8">Learn It</h3>
-<div class="outline-text-3" id="text-2-8">
+<div id="outline-container-org48e950f" class="outline-3 learn">
+<h3 id="org48e950f">Learn It</h3>
+<div class="outline-text-3" id="text-org48e950f">
 <ul class="org-ul">
-<li>Your diagram should probably look something like this now.
-</li>
+<li>Your diagram should probably look something like this now.</li>
 </ul>
 
 <div class="figure">
@@ -367,10 +463,8 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>Let's imagine that the Desktop Computer is going to send an image file to the Media Player.
-</li>
-<li>The image is called tree.jpg and has a size of 1.5MB (That's 1.5 Million bytes)
-</li>
+<li>Let's imagine that the Desktop Computer is going to send an image file to the Media Player.</li>
+<li>The image is called tree.jpg and has a size of 1.5MB (That's 1.5 Million bytes)</li>
 </ul>
 
 <div class="figure">
@@ -378,12 +472,9 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>1.5 Million bytes is too large to send in one go, so the Desktop Computer needs to break up the file into small chunks called <i>packets</i>
-</li>
-<li>Each packet has an average size of about 1.5KB (That's 1500 bytes)
-</li>
-<li>The Desktop Computer breaks up the image into packets, and adds some extra data onto the packet as well
-</li>
+<li>1.5 Million bytes is too large to send in one go, so the Desktop Computer needs to break up the file into small chunks called <i>packets</i></li>
+<li>Each packet has an average size of about 1.5KB (That's 1500 bytes)</li>
+<li>The Desktop Computer breaks up the image into packets, and adds some extra data onto the packet as well</li>
 </ul>
 
 <div class="figure">
@@ -391,40 +482,33 @@ When ever we connect two or more computers together, so that they can communicat
 </p>
 </div>
 <ul class="org-ul">
-<li>Each packet is then sent to the Router.
-</li>
-<li>When the Router receives a packet, it looks at the receiver's IP Address, and then sends the packet onto the correct device on the network.
-</li>
-<li>The receiving device (in this case the Media Player) receives all these packets, and uses the packet number to assemble them all in the correct order.
-</li>
-<li>Sometimes a packet get's lost or destroyed on the way. The receiving device will know that a packet is missing, and can use the sender's IP address to ask for the packet to be sent again.
-</li>
+<li>Each packet is then sent to the Router.</li>
+<li>When the Router receives a packet, it looks at the receiver's IP Address, and then sends the packet onto the correct device on the network.</li>
+<li>The receiving device (in this case the Media Player) receives all these packets, and uses the packet number to assemble them all in the correct order.</li>
+<li>Sometimes a packet get's lost or destroyed on the way. The receiving device will know that a packet is missing, and can use the sender's IP address to ask for the packet to be sent again.</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2 activity">
-<h2 id="sec-3"><span class="section-number-2">3</span> A Presentation on Networks</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org99bfc94" class="outline-2 activity">
+<h2 id="org99bfc94"><span class="section-number-2">4</span> A Presentation on Networks</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-sec-3-1" class="outline-3 badge">
-<h3 id="sec-3-1">Badge It</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org459473c" class="outline-3 badge">
+<h3 id="org459473c">Badge It</h3>
+<div class="outline-text-3" id="text-org459473c">
 <ul class="org-ul">
-<li>Imagine you had to try and explain how an image is sent over a network, from one device to another.
-</li>
-<li>Create a presentation (using any software you like), and the image you drew earlier of a network, to explain how a file is sent over a network.
-</li>
-<li>Your teacher will award you a silver, gold or platinum badge, depending on the clarity of your presentation.
-</li>
+<li>Imagine you had to try and explain how an image is sent over a network, from one device to another.</li>
+<li>Create a presentation (using any software you like), and the image you drew earlier of a network, to explain how a file is sent over a network.</li>
+<li>Your teacher will award you a silver, gold or platinum badge, depending on the clarity of your presentation.</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="validation"></p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
 </html>
