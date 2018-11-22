@@ -9,6 +9,7 @@
 <a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
 </div>
 #+END_HTML
+The internet is a very large network, but at the end of the day it is still just a network of computers.
 * COMMENT Use as a template
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
@@ -73,26 +74,11 @@
 :HTML_CONTAINER_CLASS: save
 :END:
 
-* Learning Objectives
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: activity
-:END:
-- In this lesson you will develop an understanding of the learning strand *Network and Communications* on your progress ladder, working towards blue/indigo level.
-
-** Understanding and being able to explain:
-:PROPERTIES:
-:HTML_CONTAINER_CLASS: objectives
-:END:
-- What a Computer Network is
-- Different types of Computer Networks
-- What a router is and how it connects to devices
-- What packets are and how we use them to transfer data
-
 * What is a Computer Network?
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-A Computer Network is when we connect two or more computers together so they can communicate with eachother.
+When ever we connect two or more computers together, so that they can communicate with each other, we have a Computer Network.
 ** Learn It
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
