@@ -97,7 +97,7 @@ A Computer Network is when we connect two or more computers together so they can
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: learn
 :END:
-- There are many different types of network, with names like /mesh/,/bus/ and /ring/.
+- There are many different types of network, with names like /mesh/, /bus/  and /ring/.
 [[http://upload.wikimedia.org/wikipedia/commons/9/96/NetworkTopologies.png]]
 - Most networks you will have used will have been /star/ networks.
 - Star networks are named because of the shape they have in diagrams.
