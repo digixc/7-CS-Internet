@@ -1,7 +1,7 @@
 #+STARTUP:indent
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
-#+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil  
+#+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil postamble:nil 
 #+TITLE: Modeling a Network in Scratch
 #+AUTHOR: Marc Scotthh
 #+BEGIN_HTML
@@ -208,11 +208,22 @@ Broadcast Create Packet
   Your browser does not support the video file
 </video>
 #+END_HTML
-* Extension Activities
+
+* Badge it
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
-** Badge It
+
+** *Gold*:
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: badge
+:END:
+- Upload a screenshot of your code as well as the core parts of it running:
+- Asking for the destination
+- Asking for the message
+- The packet reaching the destination and saying the message
+
+** *Platinum*:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: badge
 :END:
@@ -220,4 +231,3 @@ Broadcast Create Packet
 - The sending computer should ask for a name to send to the packet to.
 - The IP address should then be searched for from a couple of lists.
 - The packet can then be sent to the looked up IP address.
-
