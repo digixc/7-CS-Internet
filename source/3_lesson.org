@@ -73,7 +73,21 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: save
 :END:
-
+* Learning Objectives...
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: activity
+:END:
+- In this lesson you will develop an understanding of the learning strand *Algorithms* on your progress ladder, working towards yellow/green level.
+** Understanding and being able to:
+:PROPERTIES:
+:HTML_CONTAINER_CLASS: objectives
+:END:
+- Explain what a DNS is and why we use them
+- Contruct a Scratch program to demonstrate a DNS 
+- How to use loops (Iteration) in Sratch
+- How to use the ask and answer blocks in Scratch to receive user input in Scratch
+- Know how a Linear Search operates and how it is used in a list
+- Modify the tutorial code on this page to use your own lists and sprites
 * Modelling a DNS table
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity

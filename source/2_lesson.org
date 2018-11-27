@@ -47,13 +47,14 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
 :END:
+- In this lesson you will develop an understanding of the learning strand *Communication & Networks* on your progress ladder, working towards yellow level.
 ** Understanding and being able to explain:
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: objectives
 :END:
-- What is domain name and why using domain name
-- What is IP address and why using IP address
-- What is DNS and how it works
+- What is a domain name and why we use them
+- What are IP addresses and why we use them
+- What is DNS and how it works and uses both domain names and IP addresses.
 * URLs and Domain Names
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: activity
