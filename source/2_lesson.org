@@ -3,7 +3,7 @@
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
 #+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil  
 #+TITLE: Domain Names, IP Addresses and DNS
-#+AUTHOR: Marc Scott
+#+AUTHOR: Marc Scott, Xiaohui Ellis
 
 #+BEGIN_EXPORT html
 <div class=ribbon>

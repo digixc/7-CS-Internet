@@ -75,7 +75,7 @@
 :END:
 * Learning Objectives...
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: activity
+:HTML_CONTAINER_CLASS: objectives
 :END:
 - In this lesson you will develop an understanding of the learning strand *Algorithms* on your progress ladder, working towards yellow/green level.
 ** Understanding and being able to:

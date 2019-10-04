@@ -1,15 +1,15 @@
 #+STARTUP:indent
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/styles.css"/>
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
-#+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil toc:nil
-#+TITLE: The Internet, The Web, Browsers and Search Engines.
-#+AUTHOR: 
+#+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil  
+#+TITLE: Domain Names, IP Addresses and DNS
+#+AUTHOR: Marc Scott, Xiaohui Ellis
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=ribbon>
-<a href="https://github.com/stsb11/7-CS-Internet">Fork me on GitHub</a>
+<a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
 </div>
-#+END_HTML
+#+END_EXPORT
 
 * COMMENT Use as a template
 :PROPERTIES:
@@ -45,7 +45,7 @@
 :END:
 * Learning Objectives
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: activity
+:HTML_CONTAINER_CLASS: objectives
 :END:
 - In this lesson you will develop an understanding of the learning strand *Network and Communications* on your progress ladder, working towards yellow level.
 *** Understanding and being able to explain:
@@ -85,9 +85,9 @@
 :HTML_CONTAINER_CLASS: activity
 :END:
 - Most people don't know what the Internet is or how it works, even though they use it every day.
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <object data="https://www.youtube.com/embed/iDbyYGrswtg" width="560" height="315"></object>
-#+END_HTML
+#+END_EXPORT
 - In reality, The Internet is a global network of computers, connected by /fibre optic/ and /copper cables/ or /wireless and satellite signals/.
 - On it's own, the internet is nothing more than a lot of very expensive equipment.
 ** Research It

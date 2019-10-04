@@ -3,21 +3,28 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Modelling a DNS</title>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -44,27 +51,111 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -84,6 +175,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="css/styles.css"/>
@@ -93,7 +185,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -142,147 +234,137 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. Learning Objectives&#x2026;</a>
+<li><a href="#org6aa9b97">1. Learning Objectives&#x2026;</a>
 <ul>
-<li><a href="#sec-1-1">Understanding and being able to:</a></li>
+<li><a href="#org2bfe6e9">Understanding and being able to:</a></li>
 </ul>
 </li>
-<li><a href="#sec-2">2. Modelling a DNS table</a>
+<li><a href="#orgef6f193">2. Modelling a DNS table</a>
 <ul>
-<li><a href="#sec-2-1">Code It</a></li>
-<li><a href="#sec-2-2">Research It</a></li>
-<li><a href="#sec-2-3">Code It</a></li>
-<li><a href="#sec-2-4">Code It</a></li>
+<li><a href="#org06743d8">Code It</a></li>
+<li><a href="#org9629c68">Research It</a></li>
+<li><a href="#orgbad49f7">Code It</a></li>
+<li><a href="#org0d534db">Code It</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3. Linear Search</a>
+<li><a href="#orgaf7cbf9">3. Linear Search</a>
 <ul>
-<li><a href="#sec-3-1">Research It</a></li>
-<li><a href="#sec-3-2">Learn It</a></li>
+<li><a href="#org4de105d">Research It</a></li>
+<li><a href="#org22878b7">Learn It</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4. Indexing a list</a>
+<li><a href="#org875b8f3">4. Indexing a list</a>
 <ul>
-<li><a href="#sec-4-1">Learn It</a></li>
+<li><a href="#org7dedb42">Learn It</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5. Using a linear search in our DNS.</a>
+<li><a href="#org4e0b682">5. Using a linear search in our DNS.</a>
 <ul>
-<li><a href="#sec-5-1">Code It</a></li>
-<li><a href="#sec-5-2">Code It</a></li>
-<li><a href="#sec-5-3">Run It</a></li>
-<li><a href="#sec-5-4">Document It</a></li>
-<li><a href="#sec-5-5">Learn It</a></li>
+<li><a href="#org0bdeedd">Code It</a></li>
+<li><a href="#org0d81ed3">Code It</a></li>
+<li><a href="#orga6f14b3">Run It</a></li>
+<li><a href="#org99f31e0">Document It</a></li>
+<li><a href="#org101ee03">Learn It</a></li>
 </ul>
 </li>
-<li><a href="#sec-6">6. A Linear Search Project</a>
+<li><a href="#orgbe00010">6. A Linear Search Project</a>
 <ul>
-<li><a href="#sec-6-1">Badge It</a></li>
-<li><a href="#sec-6-2">Badge It</a></li>
+<li><a href="#org3f629fd">Badge It</a></li>
+<li><a href="#orga6b5a4b">Badge It</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div class=ribbon>
-<a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
+<div class="HTML">
+<p>
+&lt;div class=ribbon&gt;
+&lt;a href="<a href="https://github.com/MarcScott/7-CS-Internet">https://github.com/MarcScott/7-CS-Internet</a>"&gt;Fork me on GitHub&lt;/a&gt;
+&lt;/div&gt;
+</p>
+
 </div>
 
-<div id="outline-container-sec-1" class="outline-2 activity">
-<h2 id="sec-1"><span class="section-number-2">1</span> Learning Objectives&#x2026;</h2>
+<div id="outline-container-org6aa9b97" class="outline-2 objectives">
+<h2 id="org6aa9b97"><span class="section-number-2">1</span> Learning Objectives&#x2026;</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>In this lesson you will develop an understanding of the learning strand <b>Algorithms</b> on your progress ladder, working towards yellow/green level.
-</li>
+<li>In this lesson you will develop an understanding of the learning strand <b>Algorithms</b> on your progress ladder, working towards yellow/green level.</li>
 </ul>
 </div>
-<div id="outline-container-sec-1-1" class="outline-3 objectives">
-<h3 id="sec-1-1">Understanding and being able to:</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org2bfe6e9" class="outline-3 objectives">
+<h3 id="org2bfe6e9">Understanding and being able to:</h3>
+<div class="outline-text-3" id="text-org2bfe6e9">
 <ul class="org-ul">
-<li>Explain what a DNS is and why we use them
-</li>
-<li>Contruct a Scratch program to demonstrate a DNS 
-</li>
-<li>How to use loops (Iteration) in Sratch
-</li>
-<li>How to use the ask and answer blocks in Scratch to receive user input in Scratch
-</li>
-<li>Know how a Linear Search operates and how it is used in a list
-</li>
-<li>Modify the tutorial code on this page to use your own lists and sprites
-</li>
+<li>Explain what a DNS is and why we use them</li>
+<li>Contruct a Scratch program to demonstrate a DNS</li>
+<li>How to use loops (Iteration) in Sratch</li>
+<li>How to use the ask and answer blocks in Scratch to receive user input in Scratch</li>
+<li>Know how a Linear Search operates and how it is used in a list</li>
+<li>Modify the tutorial code on this page to use your own lists and sprites</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2 activity">
-<h2 id="sec-2"><span class="section-number-2">2</span> Modelling a DNS table</h2>
+<div id="outline-container-orgef6f193" class="outline-2 activity">
+<h2 id="orgef6f193"><span class="section-number-2">2</span> Modelling a DNS table</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-sec-2-1" class="outline-3 code">
-<h3 id="sec-2-1">Code It</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org06743d8" class="outline-3 code">
+<h3 id="org06743d8">Code It</h3>
+<div class="outline-text-3" id="text-org06743d8">
 <ul class="org-ul">
-<li>Go to <a href="http://scratch.mit.edu">The MIT Scratch website</a>
-</li>
-<li>Create a new project
-</li>
-<li>Name it DNS model
-</li>
+<li>Go to <a href="http://scratch.mit.edu">The MIT Scratch website</a></li>
+<li>Create a new project</li>
+<li>Name it DNS model</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3 research">
-<h3 id="sec-2-2">Research It</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org9629c68" class="outline-3 research">
+<h3 id="org9629c68">Research It</h3>
+<div class="outline-text-3" id="text-org9629c68">
 <ul class="org-ul">
-<li>A Domain Name Server has a table stored on it, that will look something like this:
-</li>
+<li>A Domain Name Server has a table stored on it, that will look something like this:</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="right" />
+<col  class="org-right" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">Domain Name</th>
-<th scope="col" class="right">IP Address</th>
+<th scope="col" class="org-left">Domain Name</th>
+<th scope="col" class="org-right">IP Address</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">google.com</td>
-<td class="right">74.125.239.116</td>
+<td class="org-left">google.com</td>
+<td class="org-right">74.125.239.116</td>
 </tr>
 
 <tr>
-<td class="left">bbc.co.uk</td>
-<td class="right">212.58.246.90</td>
+<td class="org-left">bbc.co.uk</td>
+<td class="org-right">212.58.246.90</td>
 </tr>
 </tbody>
 </table>
 
 <ul class="org-ul">
-<li>It is a simplication of the actual data on a DNS
-</li>
-<li>If you want to find out more, here is a good <a href="https://linode.com/docs/networking/dns/dns-records-an-introduction/">article</a> on this.
-</li>
+<li>It is a simplication of the actual data on a DNS</li>
+<li>If you want to find out more, here is a good <a href="https://linode.com/docs/networking/dns/dns-records-an-introduction/">article</a> on this.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-2-3" class="outline-3 code">
-<h3 id="sec-2-3">Code It</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-orgbad49f7" class="outline-3 code">
+<h3 id="orgbad49f7">Code It</h3>
+<div class="outline-text-3" id="text-orgbad49f7">
 <ul class="org-ul">
-<li>We're going to have to build a DNS Table to begin with. This is going to be made up of two lists.
-</li>
-<li>In Scratch, create a new list called <code>Domain Names</code> and then another list called <code>IP Addresses</code>
-</li>
+<li>We're going to have to build a DNS Table to begin with. This is going to be made up of two lists.</li>
+<li>In Scratch, create a new list called <code>Domain Names</code> and then another list called <code>IP Addresses</code></li>
 </ul>
 
 <div class="figure">
@@ -291,22 +373,16 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-2-4" class="outline-3 code">
-<h3 id="sec-2-4">Code It</h3>
-<div class="outline-text-3" id="text-2-4">
+<div id="outline-container-org0d534db" class="outline-3 code">
+<h3 id="org0d534db">Code It</h3>
+<div class="outline-text-3" id="text-org0d534db">
 <ul class="org-ul">
-<li>We're going to need a few Domain names and IP Addresses to populate our table. About 1000 of each should do the trick.
-</li>
-<li>This would take ages by hand, but luckily Scratch allows us to import text files.
-</li>
-<li><a href="../resources/domains.txt">Right click </a>here  then <b>Save Linked File As</b> to download the list of <b>domain names</b>. 
-</li>
-<li><a href="../resources/IPs.txt">Right click</a> here then <b>Save Linked File As</b> to download the list of <b>IP addresses</b>.
-</li>
-<li>In your Scratch window, right click on the gray box that represents the Domain Names list and choose import from the context menu.
-</li>
-<li>You can then direct your file browser to the downloaded file.
-</li>
+<li>We're going to need a few Domain names and IP Addresses to populate our table. About 1000 of each should do the trick.</li>
+<li>This would take ages by hand, but luckily Scratch allows us to import text files.</li>
+<li><a href="../resources/domains.txt">Right click </a>here  then <b>Save Linked File As</b> to download the list of <b>domain names</b>.</li>
+<li><a href="../resources/IPs.txt">Right click</a> here then <b>Save Linked File As</b> to download the list of <b>IP addresses</b>.</li>
+<li>In your Scratch window, right click on the gray box that represents the Domain Names list and choose import from the context menu.</li>
+<li>You can then direct your file browser to the downloaded file.</li>
 </ul>
 
 <div class="figure">
@@ -314,8 +390,7 @@ for the JavaScript code in this tag.
 </p>
 </div>
 <ul class="org-ul">
-<li>Do the same for the IP Addresses list and you should end up with something that looks like this.
-</li>
+<li>Do the same for the IP Addresses list and you should end up with something that looks like this.</li>
 </ul>
 
 <div class="figure">
@@ -325,90 +400,73 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2 activity">
-<h2 id="sec-3"><span class="section-number-2">3</span> Linear Search</h2>
+<div id="outline-container-orgaf7cbf9" class="outline-2 activity">
+<h2 id="orgaf7cbf9"><span class="section-number-2">3</span> Linear Search</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-sec-3-1" class="outline-3 research">
-<h3 id="sec-3-1">Research It</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org4de105d" class="outline-3 research">
+<h3 id="org4de105d">Research It</h3>
+<div class="outline-text-3" id="text-org4de105d">
 <ul class="org-ul">
-<li>When you type in a URL into a web-browser address bar, your computer consults the DNS server, to find the IP address.
-</li>
-<li>The DNS server has to look up the domain name and find the corresponding IP address
-</li>
-<li>To do this the server needs to use a searching algorithm.
-</li>
+<li>When you type in a URL into a web-browser address bar, your computer consults the DNS server, to find the IP address.</li>
+<li>The DNS server has to look up the domain name and find the corresponding IP address</li>
+<li>To do this the server needs to use a searching algorithm.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-3-2" class="outline-3 learn">
-<h3 id="sec-3-2">Learn It</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org22878b7" class="outline-3 learn">
+<h3 id="org22878b7">Learn It</h3>
+<div class="outline-text-3" id="text-org22878b7">
 <ul class="org-ul">
-<li>A linear search is a method of going through a list of items, one by one, and checking each item. 
-</li>
-<li>Imagine we had a list of 'things'
-</li>
+<li>A linear search is a method of going through a list of items, one by one, and checking each item.</li>
+<li>Imagine we had a list of 'things'</li>
 </ul>
 <p>
 <code>[cat,dog,horse,mouse,rabbit,parrot,elephant]</code>
 </p>
 <ul class="org-ul">
-<li>If we wanted a computer to program to find the position of the element
-</li>
+<li>If we wanted a computer to program to find the position of the element</li>
 </ul>
 <p>
 <code>parrot</code> it would check from left to right
 </p>
 <ul class="org-ul">
-<li>The program would check what was at position 1, see if it was parrot and if it wasn't it would move onto position 2, and so on.
-</li>
-<li>Luckily, computers can do this exceptionally quickly.
-</li>
+<li>The program would check what was at position 1, see if it was parrot and if it wasn't it would move onto position 2, and so on.</li>
+<li>Luckily, computers can do this exceptionally quickly.</li>
 </ul>
 </div>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2 activity">
-<h2 id="sec-4"><span class="section-number-2">4</span> Indexing a list</h2>
+<div id="outline-container-org875b8f3" class="outline-2 activity">
+<h2 id="org875b8f3"><span class="section-number-2">4</span> Indexing a list</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-sec-4-1" class="outline-3 learn">
-<h3 id="sec-4-1">Learn It</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org7dedb42" class="outline-3 learn">
+<h3 id="org7dedb42">Learn It</h3>
+<div class="outline-text-3" id="text-org7dedb42">
 <ul class="org-ul">
-<li>As a computer reads through a list, it needs to keep track of where it is. This is what an index is for.
-</li>
-<li>Imagine we have the following two lists:
-</li>
+<li>As a computer reads through a list, it needs to keep track of where it is. This is what an index is for.</li>
+<li>Imagine we have the following two lists:</li>
 </ul>
 <pre class="example">
 OperatingSystems = ['Mac OSX','Windows 8','Android','iOS','Ubuntu']
 Rating = ['4/5','2/5','4/5','3/5','5/5']
 </pre>
 <ul class="org-ul">
-<li>The items in the first list are Operating systems.
-</li>
-<li>The items in the second list give a user rating out of 5.
-</li>
-<li>Imagine we wanted to find out the rating out of 5 for Android.
-</li>
-<li>We could step through the list of operating systems until we found Android.
-</li>
-<li>This would not tell us where to find the rating out of five in the second list though. It would just tell us that Android exists in the first list.
-</li>
+<li>The items in the first list are Operating systems.</li>
+<li>The items in the second list give a user rating out of 5.</li>
+<li>Imagine we wanted to find out the rating out of 5 for Android.</li>
+<li>We could step through the list of operating systems until we found Android.</li>
+<li>This would not tell us where to find the rating out of five in the second list though. It would just tell us that Android exists in the first list.</li>
 </ul>
 <pre class="example">
 OperatingSystems = ['Mac OSX','Windows 8','Android','iOS','Ubuntu']
-Rating = ['4/5','2/5','4/5','3/5','5/5']
+Rating = ['4/5','2/5','4/5','3/5','5/5']                 
 </pre>
 <ul class="org-ul">
-<li>As we move through (iterate) the first list searching for 'Android', we keep a count of our position. The position is called the <i>index</i> of the list.
-</li>
-<li>The algorithm looks something like this:
-</li>
+<li>As we move through (iterate) the first list searching for 'Android', we keep a count of our position. The position is called the <i>index</i> of the list.</li>
+<li>The algorithm looks something like this:</li>
 </ul>
 <pre class="example">
 1. index = 1
@@ -424,22 +482,19 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </div>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2 activity">
-<h2 id="sec-5"><span class="section-number-2">5</span> Using a linear search in our DNS.</h2>
+<div id="outline-container-org4e0b682" class="outline-2 activity">
+<h2 id="org4e0b682"><span class="section-number-2">5</span> Using a linear search in our DNS.</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
-<li>In our Scratch program so far we have a list of domain names and a list of IP addresses.
-</li>
-<li>We need to be able to conduct a linear search on the list of domain names to find the index of any given name.
-</li>
+<li>In our Scratch program so far we have a list of domain names and a list of IP addresses.</li>
+<li>We need to be able to conduct a linear search on the list of domain names to find the index of any given name.</li>
 </ul>
 </div>
-<div id="outline-container-sec-5-1" class="outline-3 code">
-<h3 id="sec-5-1">Code It</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-org0bdeedd" class="outline-3 code">
+<h3 id="org0bdeedd">Code It</h3>
+<div class="outline-text-3" id="text-org0bdeedd">
 <ul class="org-ul">
-<li>Start by adding in a When <code>green flag</code> clicked block
-</li>
+<li>Start by adding in a When <code>green flag</code> clicked block</li>
 </ul>
 
 <div class="figure">
@@ -447,8 +502,7 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>Now we'll ask the user for the domain name they're looking for.
-</li>
+<li>Now we'll ask the user for the domain name they're looking for.</li>
 </ul>
 
 <div class="figure">
@@ -458,12 +512,9 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 <ul class="org-ul">
 <li>Next you'll need a couple of variables:
 <ul class="org-ul">
-<li>Create a variable called <code>domain</code>
-</li>
-<li>Create a variable called <code>index</code>
-</li>
-</ul>
-</li>
+<li>Create a variable called <code>domain</code></li>
+<li>Create a variable called <code>index</code></li>
+</ul></li>
 </ul>
 
 <div class="figure">
@@ -471,8 +522,7 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>You should set the domain to be the answer of the <code>ask</code> block and the index to be the integer <code>1</code>
-</li>
+<li>You should set the domain to be the answer of the <code>ask</code> block and the index to be the integer <code>1</code></li>
 </ul>
 
 <div class="figure">
@@ -481,12 +531,11 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </div>
 </div>
 </div>
-<div id="outline-container-sec-5-2" class="outline-3 code">
-<h3 id="sec-5-2">Code It</h3>
-<div class="outline-text-3" id="text-5-2">
+<div id="outline-container-org0d81ed3" class="outline-3 code">
+<h3 id="org0d81ed3">Code It</h3>
+<div class="outline-text-3" id="text-org0d81ed3">
 <ul class="org-ul">
-<li>Our linear search algorithm could possibly need to search right to the end of the list. So we'll need to use a loop that keeps going until the index is at 1001.
-</li>
+<li>Our linear search algorithm could possibly need to search right to the end of the list. So we'll need to use a loop that keeps going until the index is at 1001.</li>
 </ul>
 
 <div class="figure">
@@ -494,8 +543,7 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>Currently <code>index</code> is <code>1</code>. So the algorithm needs to check the 1st item in domain names, and see if it matches the domain that the user is looking for. We can do this with a conditional <code>if/else</code> inside the <code>repeat until</code> loop.
-</li>
+<li>Currently <code>index</code> is <code>1</code>. So the algorithm needs to check the 1st item in domain names, and see if it matches the domain that the user is looking for. We can do this with a conditional <code>if/else</code> inside the <code>repeat until</code> loop.</li>
 </ul>
 
 <div class="figure">
@@ -503,8 +551,7 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>If the domain names do not match, then we want <code>index</code> to become <code>2</code>, and the algorithm to go back to the start of the loop.
-</li>
+<li>If the domain names do not match, then we want <code>index</code> to become <code>2</code>, and the algorithm to go back to the start of the loop.</li>
 </ul>
 
 <div class="figure">
@@ -512,8 +559,7 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>If however there is a match, then we know that the index of the IPs list will contain the IP address we're looking for.
-</li>
+<li>If however there is a match, then we know that the index of the IPs list will contain the IP address we're looking for.</li>
 </ul>
 
 <div class="figure">
@@ -522,15 +568,12 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </div>
 </div>
 </div>
-<div id="outline-container-sec-5-3" class="outline-3 run">
-<h3 id="sec-5-3">Run It</h3>
-<div class="outline-text-3" id="text-5-3">
-
+<div id="outline-container-orga6f14b3" class="outline-3 run">
+<h3 id="orga6f14b3">Run It</h3>
+<div class="outline-text-3" id="text-orga6f14b3">
 <ul class="org-ul">
-<li>Pick some random domain names from the list and use your algorithm to search for their IP addresses.
-</li>
-<li>Once you have an IP address you can copy and paste it into your browser's URL bar, and you should get directed to the site
-</li>
+<li>Pick some random domain names from the list and use your algorithm to search for their IP addresses.</li>
+<li>Once you have an IP address you can copy and paste it into your browser's URL bar, and you should get directed to the site</li>
 </ul>
 
 <div class="figure">
@@ -538,85 +581,65 @@ Rating = ['4/5','2/5','4/5','3/5','5/5']
 </p>
 </div>
 <ul class="org-ul">
-<li>Not all of them will work however, as some sites use redirects and other trickery that will fool your browser.
-</li>
+<li>Not all of them will work however, as some sites use redirects and other trickery that will fool your browser.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-5-4" class="outline-3 document">
-<h3 id="sec-5-4">Document It</h3>
-<div class="outline-text-3" id="text-5-4">
-
+<div id="outline-container-org99f31e0" class="outline-3 document">
+<h3 id="org99f31e0">Document It</h3>
+<div class="outline-text-3" id="text-org99f31e0">
 <ul class="org-ul">
-<li>Use screen shots and some text to try to explain how your Linear Search algorithm works.
-</li>
+<li>Use screen shots and some text to try to explain how your Linear Search algorithm works.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-5-5" class="outline-3 learn">
-<h3 id="sec-5-5">Learn It</h3>
-<div class="outline-text-3" id="text-5-5">
+<div id="outline-container-org101ee03" class="outline-3 learn">
+<h3 id="org101ee03">Learn It</h3>
+<div class="outline-text-3" id="text-org101ee03">
 <p>
 Here's a quick recap of what you've covered so far.
 </p>
 <ul class="org-ul">
-<li>Domain names are easy for humans to read and remember.
-</li>
-<li>Each domain name links to an IP address that computers use to send messages to each other.
-</li>
-<li>A Domain Name Server (DNS) stores a table of domain names and IP addresses.
-</li>
-<li>When you type in a URL, your computer asks the DNS what the IP address is for the domain name.
-</li>
-<li>An item in a list can be referenced by its position, which is called it's index.
-</li>
-<li>Linear search is one method of finding an element in a list.
-</li>
+<li>Domain names are easy for humans to read and remember.</li>
+<li>Each domain name links to an IP address that computers use to send messages to each other.</li>
+<li>A Domain Name Server (DNS) stores a table of domain names and IP addresses.</li>
+<li>When you type in a URL, your computer asks the DNS what the IP address is for the domain name.</li>
+<li>An item in a list can be referenced by its position, which is called it's index.</li>
+<li>Linear search is one method of finding an element in a list.</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2 activity">
-<h2 id="sec-6"><span class="section-number-2">6</span> A Linear Search Project</h2>
+<div id="outline-container-orgbe00010" class="outline-2 activity">
+<h2 id="orgbe00010"><span class="section-number-2">6</span> A Linear Search Project</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-sec-6-1" class="outline-3 silver">
-<h3 id="sec-6-1">Badge It</h3>
-<div class="outline-text-3" id="text-6-1">
-
+<div id="outline-container-org3f629fd" class="outline-3 silver">
+<h3 id="org3f629fd">Badge It</h3>
+<div class="outline-text-3" id="text-org3f629fd">
 <ul class="org-ul">
-<li>Test your code to check it works
-</li>
-<li>Upload a screen shot of your finished and tested script to www.bournetolearn.com
-</li>
+<li>Test your code to check it works</li>
+<li>Upload a screen shot of your finished and tested script to www.bournetolearn.com</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-6-2" class="outline-3 gold">
-<h3 id="sec-6-2">Badge It</h3>
-<div class="outline-text-3" id="text-6-2">
-
+<div id="outline-container-orga6b5a4b" class="outline-3 gold">
+<h3 id="orga6b5a4b">Badge It</h3>
+<div class="outline-text-3" id="text-orga6b5a4b">
 <ul class="org-ul">
-<li>You're going to try an implement your own Linear Search program now.
-</li>
+<li>You're going to try an implement your own Linear Search program now.</li>
 <li>Create a Scratch program that:
 <ul class="org-ul">
-<li>Uses two lists, one to store a Subject Name (e.g. Science) and the other to store a teacher's name.
-</li>
-<li>Allows a user to search for a Subject Name and returns the teacher of that subject
-</li>
-</ul>
-</li>
-<li>Use any sprites you like.
-</li>
+<li>Uses two lists, one to store a Subject Name (e.g. Science) and the other to store a teacher's name.</li>
+<li>Allows a user to search for a Subject Name and returns the teacher of that subject</li>
+</ul></li>
+<li>Use any sprites you like.</li>
 <li>An extra challenge:
 <ul class="org-ul">
-<li>Make it return 'Not found" if a subject that doesn't exist is asked for.
-</li>
-</ul>
-</li>
+<li>Make it return 'Not found" if a subject that doesn't exist is asked for.</li>
+</ul></li>
 </ul>
 </div>
 </div>
