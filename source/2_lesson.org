@@ -5,11 +5,12 @@
 #+TITLE: Domain Names, IP Addresses and DNS
 #+AUTHOR: Marc Scott
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <div class=ribbon>
 <a href="https://github.com/MarcScott/7-CS-Internet">Fork me on GitHub</a>
 </div>
-#+END_HTML
+#+END_EXPORT
+
 
 * COMMENT Use as a template
 :PROPERTIES:
@@ -45,7 +46,7 @@
 :END:
 * Learning Objectives
 :PROPERTIES:
-:HTML_CONTAINER_CLASS: activity
+:HTML_CONTAINER_CLASS: objectives
 :END:
 - In this lesson you will develop an understanding of the learning strand *Communication & Networks* on your progress ladder, working towards yellow level.
 ** Understanding and being able to explain:
@@ -99,7 +100,7 @@ You'll be very familiar with some domain names like;
     London,
     SW1A 2AA                            
 #+END_EXAMPLE
-[[https://upload.wikimedia.org/wikipedia/commons/f/f5/2010_Official_Downing_Street_pic.jpg]]
+
 - This is nice and easy for humans to say and remember. 
 - Another way of saying where the Prime Minister lives would be to use Longitude and Latitude.
 #+BEGIN_EXAMPLE
@@ -113,7 +114,7 @@ You'll be very familiar with some domain names like;
 - Domain names are like address, they are designed for humans to read and remember. In reality a computer's address (that allows other computers on a network or the internet to find it), is made up of numbers.
 - Computer use =IP addresses= to send messages to each other.
 - Your Computer's current IP address should be shown below
-  #+BEGIN_HTML
+  #+BEGIN_EXPORT html
 <div style="text-align:center;margin:0 auto;">
 </br>                   
 <script language="JavaScript">
@@ -126,7 +127,7 @@ VIH_DisplayOnPage = "yes";
 <script language="JavaScript" src="http://scripts.hashemian.com/js/visitorIPHOST.js.php"></script>
 </br>
 </div>
-  #+END_HTML
+  #+END_EXPORT
 - We need domain names because *IP addresses are too difficult for humans to remember.*
 - Imagine typing in this every time you needed to go to a certain web address. Try the following in your home browser and see where each of the IP addresses takes you to. Note: those will not work inside school as accessing websites by IP addresses are blocked.
 #+BEGIN_EXAMPLE
@@ -154,17 +155,21 @@ VIH_DisplayOnPage = "yes";
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: research
 :END:
-You can use [[https://howdns.works/][this colourful tutorial]] to help you understand how DNS work
+You can use the following animated tutorail to help you understand how DNS work
+#+BEGIN_EXPORT html
+<a href='https://howdns.works/ep1/'><img src='./img/DNS-tutorial-cartoon.png' width=300 height=400></a>
+#+END_EXPORT
 
 OR
 
 You can use the following videos to help you.
 - Below are three videos, each explaining DNS in a little more detail. You can watch just the first, or all three, but make sure you understand what DNS is.
-#+BEGIN_HTML
-<iframe width="560" height="315" src="https://www.youtube.com/embed/2ZUxoi7YNgs" frameborder="0" allowfullscreen></iframe>
-<iframe class="wistia_embed" name="wistia_embed" src="https://fast.wistia.net/embed/iframe/z8ryt1i6yf?canonicalUrl=http%3A%2F%2Fdyn.com%2Fblog%2Fdynedu-video-dns-explained%2F&canonicalTitle=%23DynEdu%20Video%3A%20DNS%20Explained%20%7C%20Dyn%20Blog" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="498"></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/72snZctFFtA" frameborder="0" allowfullscreen></iframe>
-#+END_HTML
+#+BEGIN_EXPORT html
+<!-- iframe width="560" height="315" src="https://www.youtube.com/embed/2ZUxoi7YNgs" frameborder="0" allowfullscreen></iframe -->
+<!-- iframe class="wistia_embed" name="wistia_embed" src="https://fast.wistia.net/embed/iframe/z8ryt1i6yf?canonicalUrl=http%3A%2F%2Fdyn.com%2Fblog%2Fdynedu-video-dns-explained%2F&canonicalTitle=%23DynEdu%20Video%3A%20DNS%20Explained%20%7C%20Dyn%20Blog" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="498" -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C3sr7_0FyPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#+END_EXPORT
 
 ** Badge It:
 :PROPERTIES:

@@ -1,3 +1,4 @@
+/* global vars */
 /*GitHub Ribbon*/
 .ribbon {
   background-color: #A30000;
@@ -157,6 +158,14 @@ object {
   margin-right: auto;
   display: block;
   max-width: 600px;
+}
+.objectives h2 {
+  font-size: 30px;
+  color: #FFF;
+  background: #d10162;
+  margin-top: 30px;
+  padding: 10px 10px;
+  border-radius: 5px;
 }
 /* CSS for sub activities*/
 .learn h3 {
