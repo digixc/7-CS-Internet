@@ -160,16 +160,6 @@ You can use the following animated tutorail to help you understand how DNS work
 <a href='https://howdns.works/ep1/'><img src='./img/DNS-tutorial-cartoon.png' width=300 height=400></a>
 #+END_EXPORT
 
-OR
-
-You can use the following videos to help you.
-- Below are three videos, each explaining DNS in a little more detail. You can watch just the first, or all three, but make sure you understand what DNS is.
-#+BEGIN_EXPORT html
-<!-- iframe width="560" height="315" src="https://www.youtube.com/embed/2ZUxoi7YNgs" frameborder="0" allowfullscreen></iframe -->
-<!-- iframe class="wistia_embed" name="wistia_embed" src="https://fast.wistia.net/embed/iframe/z8ryt1i6yf?canonicalUrl=http%3A%2F%2Fdyn.com%2Fblog%2Fdynedu-video-dns-explained%2F&canonicalTitle=%23DynEdu%20Video%3A%20DNS%20Explained%20%7C%20Dyn%20Blog" allowtransparency="true" frameborder="0" scrolling="no" width="480" height="498" -->
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C3sr7_0FyPA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-#+END_EXPORT
 
 ** Badge It:
 :PROPERTIES:
