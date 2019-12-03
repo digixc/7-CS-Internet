@@ -5,9 +5,9 @@
 #+HTML_HEAD_EXTRA: <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Ubuntu' rel='stylesheet' type='text/css'>
 #+OPTIONS: f:nil author:nil num:1 creator:nil timestamp:nil 
 #+TITLE: End of the unit evaluation
-#+AUTHOR: J Brown
+#+AUTHOR: X Ellis
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 <!--
 <div id="underlay" onclick="underlayoff()">
 </div>
@@ -25,7 +25,7 @@
 </div>
 -->
 
-#+END_HTML
+#+END_EXPORT
 
 * COMMENT Use as a template
 :PROPERTIES:
@@ -100,7 +100,7 @@
 :PROPERTIES:
 :HTML_CONTAINER_CLASS: try
 :END:
-- Right click [[./doc/How%20the%20Internet%20Works%20%E2%80%93%20End%20of%20Unit%20Evaluation.docx][this link]] then *Save Link As* to save this evaluation template into your homedrive.
+- Right click [[./doc/EndOfUnitEvaluation.docx][this link]] then *Save Link As* to save this evaluation template into your homedrive.
 - Open the downloaded template in Word.
 - Follow the instructions on the template to finish your self evaluation.
   - Under each heading/learning strand, evaluate the following:
